@@ -14,6 +14,7 @@ struct Compu
 // Declaracion de funciones
 void CargarCaracteristicasCompu(Compu *computadoras, int cantidad_pc);
 void listarPCs(Compu pcs[], int cantidad);
+void mostrarMasNueva(Compu pcs[], int cantidad);
 
 
 // Definicion
@@ -40,3 +41,18 @@ void listarPCs(Compu pcs[], int cantidad)
         MostrarCaracteristicasPc(pcs[i]);
     }
 }
+
+void mostrarMasNueva(Compu pcs[], int cantidad)
+{
+    int anio_mas_nueva = 0;
+    int index_pc_mas_nueva = 0;
+    for (int i = 0; i < cantidad; i++)
+    {
+        if (pcs[i].anio > anio_mas_nueva)
+        {
+            anio_mas_nueva = pcs[i].anio;
+            index_pc_mas_nueva = i;
+        }
+    }
+    printf("Pc mas nueva:\n");
+
