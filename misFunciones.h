@@ -14,8 +14,11 @@ struct Compu
 // Declaracion de funciones
 void CargarCaracteristicasCompu(Compu *computadoras, int cantidad_pc);
 void listarPCs(Compu pcs[], int cantidad);
+void MostrarCaracteristicasPc(Compu pc);
 void mostrarMasNueva(Compu pcs[], int cantidad);
 void mostrarMasVieja(Compu pcs[], int cantidad);
+void mostrarMasVeloz(Compu pcs[], int cantidad);
+
 
 // Definicion
 void CargarCaracteristicasCompu(Compu *computadoras, int cantidad_pc)
@@ -40,6 +43,15 @@ void listarPCs(Compu pcs[], int cantidad)
         printf("-PC Nro :%d\n", i + 1);
         MostrarCaracteristicasPc(pcs[i]);
     }
+}
+
+void MostrarCaracteristicasPc(Compu pc)
+{
+    printf("\t-Velocidad:%d\n", pc.velocidad);
+    printf("\t-Anio:%d\n", pc.anio);
+    printf("\t-Cantidad de nucleos:%d\n", pc.cantidad_nucleos);
+    printf("\t-Tipo CPU : %s\n", pc.tipo_cpu);
+    printf("\n");
 }
 
 void mostrarMasNueva(Compu pcs[], int cantidad)
@@ -74,3 +86,18 @@ void mostrarMasVieja(Compu pcs[], int cantidad)
     MostrarCaracteristicasPc(pcs[index_pc_mas_vieja]);
 }
 
+void mostrarMasVeloz(Compu pcs[], int cantidad)
+{
+    int velocidad_maxima = 0;
+    int index_pc_mas_rapida = 0;
+    for (int i = 0; i < cantidad; i++)
+    {
+        if (pcs[i].velocidad > velocidad_maxima)
+        {
+            velocidad_maxima = pcs[i].velocidad;
+            index_pc_mas_rapida = i;
+        }
+    }
+    printf("Pc mas veloz:\n");
+    MostrarCaracteristicasPc(pcs[index_pc_mas_rapida]);
+}
