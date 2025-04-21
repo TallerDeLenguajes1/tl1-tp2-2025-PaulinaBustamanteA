@@ -11,8 +11,9 @@ struct Compu
     char *tipo_cpu;       // Tipo de procesador (apuntador a cadena de caracteres)
 } typedef Compu;
 
-// Declaracion
+// Declaracion de funciones
 void CargarCaracteristicasCompu(Compu *computadoras, int cantidad_pc);
+void listarPCs(Compu pcs[], int cantidad);
 
 
 // Definicion
@@ -27,5 +28,15 @@ void CargarCaracteristicasCompu(Compu *computadoras, int cantidad_pc)
         computadoras[i].cantidad_nucleos = 1 + rand() % 8;
         index_tipo = rand() % 6;
         computadoras[i].tipo_cpu = tipos[index_tipo];
+    }
+}
+
+void listarPCs(Compu pcs[], int cantidad)
+{
+    printf("****** Listado de computadoras ******\n");
+    for (int i = 0; i < cantidad; i++)
+    {
+        printf("-PC Nro :%d\n", i + 1);
+        MostrarCaracteristicasPc(pcs[i]);
     }
 }
