@@ -15,7 +15,7 @@ struct Compu
 void CargarCaracteristicasCompu(Compu *computadoras, int cantidad_pc);
 void listarPCs(Compu pcs[], int cantidad);
 void mostrarMasNueva(Compu pcs[], int cantidad);
-
+void mostrarMasVieja(Compu pcs[], int cantidad);
 
 // Definicion
 void CargarCaracteristicasCompu(Compu *computadoras, int cantidad_pc)
@@ -55,4 +55,22 @@ void mostrarMasNueva(Compu pcs[], int cantidad)
         }
     }
     printf("Pc mas nueva:\n");
+    MostrarCaracteristicasPc(pcs[index_pc_mas_nueva]);
+}
+
+void mostrarMasVieja(Compu pcs[], int cantidad)
+{
+    int anio_mas_vieja = 9999;
+    int index_pc_mas_vieja = 0;
+    for (int i = 0; i < cantidad; i++)
+    {
+        if (pcs[i].anio < anio_mas_vieja)
+        {
+            anio_mas_vieja = pcs[i].anio;
+            index_pc_mas_vieja = i;
+        }
+    }
+    printf("Pc mas vieja:\n");
+    MostrarCaracteristicasPc(pcs[index_pc_mas_vieja]);
+}
 
